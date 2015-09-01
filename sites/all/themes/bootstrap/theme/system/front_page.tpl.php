@@ -28,7 +28,7 @@
 <div class="body">
   <div class="col-md-12 anchor land">
      <video autoplay poster="" loop id="bgvid" preload="auto">
-     <source src="<?php print $GLOBALS['base_path'];?>sites/default/files/Birds_7.mp4" type="video/mp4">
+<!--     <source src="<?php print $GLOBALS['base_path'];?>sites/default/files/Birds_7.mp4" type="video/mp4"> -->
      <source src="movie.webm" type="video/webm">
      </video>
      <div class="landingLogo"></div>
@@ -36,51 +36,48 @@
   <div class="col-md-12 anchor about">
      <div class="row col-md-8">
        <div class="row" style="margin-top: 10%;">
-         <img src="<?php print $GLOBALS['base_path'];?>sites/default/files/highny_logoapple_01.png"/><h3>About Us</h3>
-       </div>
-       <div class="row">
-         <p>High NY is a community organization dedicated to changing the way society uses Cannabis. We exist to elevate the city, the culture, and the world. Our monthly meetups are designed to inspire a new class of leaders and entrepreneurs, build cannabis awareness, and engage citizens in the political processes necessary to change the law.
-
-     This isn’t about getting high or getting rich (not that there’s anything wrong with either). This is about solving substantial problems of social injustice, providing access to medicine, and legitimizing an industry that has been unfairly stigmatized for far too long.
-
-     We have the responsibility to turn a new leaf in society and establish Cannabis as one of the most important industries in the world. We must lead by example and create socially responsible, environmentally sustainable, equal opportunity businesses. Let’s set a new standard for global business practices.
-
-High NY is about taking massive action and having High Impact.</p>
+         <img class="logo_apple" src="<?php print $GLOBALS['base_path'];?>sites/default/files/highny_logoapple_01.png"/><div class="pull-right col-md-9"><h3>HIGH NY IS A COMMUNITY</h3><p>Dedicated to improving the way society interacts with Cannabis. <a href="#signup">Join our mailing list</a></p></div>
        </div>
      </div>
-     <div class="row col-md-6">
-     <h4 class="pull-left">SUPPORT OUR MOVEMENT</h4><a href="http://www.meetup.com/HighNY/" target="_blank"><img class="pull-left" src="<?php print $GLOBALS['base_path'];?>sites/default/files/meetup.png" width="150"/></a><h4 class="pull-left">JOIN OUR MEETUP</h4>
+     <div class="row col-md-8 text">
+     <div class="col-md-5">We host New York's largest Cannabis Meetup</div><div class="col-md-2"><a href="http://www.meetup.com/HighNY/" target="_blank"><img class="pull-left meetup" src="<?php print $GLOBALS['base_path'];?>sites/default/files/meetup.png" width="150"/></a></div><div class="col-md-5">Support the momement by joining the Meetup!</div>
      </div>
   </div>
 
   <div class="col-md-12 anchor roll">
      <div class="row">
-       <h3>HOW WE ROLL</h3>
+       <h3>Cannabis Stats</h3>
      </div>
      <div class="row col-md-10">
-       <div class="row col-md-10">
-         <div class="col-md-4">
-           <h4>HIGH TECH <i class="zmdi zmdi-code-smartphone"></i></h4>
-     <p>HIGH NY WORKS TO BRIDGE THE GAP BETWEEN NYC’S VIBRANT TECH COMMUNITY AND CANNABIS COMMUNITY.</p>
+       <div class="col-md-6">
+         <div class="stats">
+         NEW YORKERS WHO SUPPORT MEDICAL USE
+         <div class="statsContainer 88" stats="88"><div class="bar"></div></div>
          </div>
-         <div class="col-md-4">
-         <h4>HIGH ART <i class="zmdi zmdi-edit"></i></h4>
-     <p>The Cannabis Community champions and celebrates creativity. Its members are innovators and doers who will solve the largest issues facing our society. In addition to networking and education, our events feature the works of NYC based artists who support our movement.
-
-     If you are interested in showcasing your art, collaborating with us or being connected with a community of artists who support the cause sign up below.</p>
-
-     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Share your art</button>
+         <div class="stats">
+         NYC POSSESSION ARRESTS THAT ARE OF BLACKS & HISPANICS
+         <div stats="86" class="statsContainer 86"><div class="bar"></div></div>
          </div>
-         <div class="col-md-4">
-           <h4>HIGH IMPACT <i class="zmdi zmdi-flash"></i></h4>
-     <p>CANNABIS WILL BE A KEY ISSUE IN 2016 ELECTIONS.</p>
+         <div class="stats">
+         INCREASE IN NYC MARIJUANA ARRESTS: 1,000% IN THE LAST 25 YEARS
+         <div stats="1000" class="statsContainer 1000" ><div class="bar"></div></div>
+         </div>
+       </div>
+       <div class="col-md-6">
+         <div class="stats">
+         NEW YORKERS WHO SUPPORT FULL LEGALIZATION OF CANNABIS
+         <div stats="57" class="statsContainer 57" ><div class="bar"></div></div>
+         </div>
+         <div class="stats">
+         INCREASE IN DEATHS FROM ACCIDENTAL OVERDOSE ON PRESCRIPTION DRUG: 360% IN U.S. SINCE 1999
+         <div stats="360" class="statsContainer 360"><div class="bar"></div></div>
          </div>
        </div>
      </div>
-
   </div>
 
   <div class="col-md-12 anchor signup">
+     <a name="signup"></a>
      <div class="row">
      <div>
      <h3>Stay tuned</h3>
@@ -97,26 +94,7 @@ High NY is about taking massive action and having High Impact.</p>
 
   <div class="col-md-12 anchor partners">
     <div class="row">
-         <div>
-         <img src="http://highny.com/wp-content/uploads/2015/02/high-times.png" alt="High Times">
-         <img src="http://highny.com/wp-content/uploads/2015/02/vice.png" alt="Vice">
-         <img src="http://highny.com/wp-content/uploads/2015/02/leafly.jpg" alt="Leafly">
-         <img src="http://highny.com/wp-content/uploads/2015/02/celeb-stoner-e1424649588920.jpg" alt="Celeb Stoner">
-         <img src="http://highny.com/wp-content/uploads/2015/02/web-design-hosting-business-development.jpg" alt="Web Source Group">
-         <img src="http://highny.com/wp-content/uploads/2015/02/nyi-langone-medical-center-e1424033588391.gif" alt="NYU Langone Medical Center">
-         <img src="http://highny.com/wp-content/uploads/2015/02/rodawg.png" alt="Rodawg">
-         <img src="http://highny.com/wp-content/uploads/2015/02/cannabis-hemp-association.png" alt="Cannabis &amp; Hemp Association">
-         <img src="http://highny.com/wp-content/uploads/2015/02/potbotics.png" alt="Potbotics">
-         <img src="http://highny.com/wp-content/uploads/2015/02/nyc-cannabis-parade.png" alt="NYC Cannabis Parade">
-         <img src="http://highny.com/wp-content/uploads/2015/02/libertarian-party-e1424649487250.png" alt="Libertarian Party">
-         <img src="http://highny.com/wp-content/uploads/2015/02/new-york-cannibis-alliance.jpg" alt="New York Cannabis Alliance">
-         <img  class="x-img x-img-none none"  src="http://highny.com/wp-content/uploads/2015/02/mj.jpg" >
-         <img src="http://highny.com/wp-content/uploads/2015/02/law-enforcement-against-prohibition.jpg" alt="Law Enforcement Against Prohibition">
-         <img src="http://highny.com/wp-content/uploads/2015/02/trim-station-e1424649552187.png" alt="Trim Station">
-         <img src="http://highny.com/wp-content/uploads/2015/02/logobeach.png" alt="The Wo/Men's Alliance for Medical Marijuana">
-         <img  class="x-img x-img-none none"  src="http://highny.com/wp-content/uploads/2015/02/wm.png" >
-         <img src="http://highny.com/wp-content/uploads/2015/02/center-for-optimal-living.jpg" alt="Center for Optimal Living">
-         </div>
+
     </div>
   </div>
 </div>
@@ -161,6 +139,22 @@ High NY is about taking massive action and having High Impact.</p>
              }
          }
 
+         var statsLoaded = false;
+         var statsLoader = function () {
+             var pos = (windowHeight()) + (windowHeight() / 2) ;
+
+             if(jQuery(window).scrollTop() >= pos && !statsLoaded) {
+                 statsLoaded = true;
+                 var valObj = jQuery('.stats').find('.statsContainer');
+    console.log(valObj);
+                 valObj.each(function ( ){
+                   var val = jQuery(this).attr('class').split(' ')[1];
+                   jQuery(this).find('.bar').width(val+'%');
+                   jQuery(this).find('.bar').html(val + '%');
+                 });
+             }
+         }
+
          jQuery(window).resize(function(e) {
              if(windowHeight() > 600) {
                  resize();
@@ -170,6 +164,7 @@ High NY is about taking massive action and having High Impact.</p>
          jQuery(window).scroll(function(e,t) {
              setNavBar();
              setVideoParallax();
+             statsLoader();
          });
 
          resize();
