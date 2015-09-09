@@ -106,7 +106,7 @@
     </div>
   </div>
 </div>
-<div class="navBarBoxShadow col-md-12"></div>
+
 
 <div class="main-container container">
 
