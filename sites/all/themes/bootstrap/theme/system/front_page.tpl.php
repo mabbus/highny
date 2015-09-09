@@ -3,18 +3,25 @@
     <div class="navBarLogo landing"></div>
     <div class="col-md-6 pull-right p-0">
       <ul class="nav nav-pills">
-	<li><a href="<?php print $GLOBALS['base_path'];?>events">EVENTS</a></li>
+	<li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EVENTS <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="drop2">
+            <li>
+              <a href="<?php print $GLOBALS['base_path'];?>events/upcoming">Upcoming <i class="zmdi zmdi-calendar-note pull-right"></i></a>
+            </li>
+            <li>
+              <a href="<?php print $GLOBALS['base_path'];?>events/recaps">Recaps <i class="zmdi zmdi-tv-play pull-right"></i></a>
+            </li>
+          </ul>
+        </li>
 	<li class="dropdown">
           <a href="<?php print $GLOBALS['base_path'];?>education" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EDUCATION <span class="caret"></span></a>
           <ul class="dropdown-menu" aria-labelledby="drop2">
             <li>
-              <a href="<?php print $GLOBALS['base_path'];?>education/higher-learning">Interviews <i class="zmdi zmdi-camera-mic pull-right"></i></a>
+              <a href="<?php print $GLOBALS['base_path'];?>education/interviews">Interviews <i class="zmdi zmdi-camera-mic pull-right"></i></a>
             </li>
             <li>
-              <a href="<?php print $GLOBALS['base_path'];?>education/higher-learning">Recaps <i class="zmdi zmdi-tv-play pull-right"></i></a>
-            </li>
-            <li>
-              <a href="<?php print $GLOBALS['base_path'];?>education/higher-learning">Articles <i class="zmdi zmdi-view-headline pull-right"></i></a>
+              <a href="<?php print $GLOBALS['base_path'];?>education/articles">Articles <i class="zmdi zmdi-view-headline pull-right"></i></a>
             </li>
           </ul>
         </li>
@@ -28,15 +35,18 @@
 <div class="body">
   <div class="col-md-12 anchor land">
      <video autoplay poster="" loop id="bgvid" preload="auto">
-<!--     <source src="<?php print $GLOBALS['base_path'];?>sites/default/files/Birds_7.mp4" type="video/mp4"> -->
-     <source src="movie.webm" type="video/webm">
+   <source src="<?php print $GLOBALS['base_path'];?>sites/default/files/movie.mp4" type="video/mp4"> 
+     <source src="<?php print $GLOBALS['base_path'];?>sites/default/files/movie.webm" type="video/webm">
      </video>
      <div class="landingLogo"></div>
   </div>
   <div class="col-md-12 anchor about">
      <div class="row col-md-8">
        <div class="row" style="margin-top: 10%;">
-         <img class="logo_apple" src="<?php print $GLOBALS['base_path'];?>sites/default/files/highny_logoapple_01.png"/><div class="pull-right col-md-9"><h3>HIGH NY IS A COMMUNITY</h3><p>Dedicated to improving the way society interacts with Cannabis. <a href="#signup">Join our mailing list</a></p></div>
+         <img class="logo_apple" src="<?php print $GLOBALS['base_path'];?>sites/default/files/highny_logoapple_01.png"/><div class="pull-right col-md-9">
+	   <h3>HIGH NY IS A COMMUNITY</h3>
+	   <p>Dicated to improving the way society interacts with Cannabis. <a href="#signup">Join our mailing list</a></p>
+	 </div>
        </div>
      </div>
      <div class="row col-md-8 text">
@@ -93,14 +103,18 @@
   </div>
 
   <div class="col-md-12 anchor partners">
-    <div class="row">
 
-    </div>
   </div>
 </div>
 
 <div class="col-md-12 footer">
-  Footer
+    <div class="row">
+     <?php 
+     $block = block_load('block', '2');
+     $output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
+     print $output;
+     ?>
+    </div>  
 </div>
 
 <script>
@@ -146,7 +160,7 @@
              if(jQuery(window).scrollTop() >= pos && !statsLoaded) {
                  statsLoaded = true;
                  var valObj = jQuery('.stats').find('.statsContainer');
-    console.log(valObj);
+
                  valObj.each(function ( ){
                    var val = jQuery(this).attr('class').split(' ')[1];
                    jQuery(this).find('.bar').width(val+'%');

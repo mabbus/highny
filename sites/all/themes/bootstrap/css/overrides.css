@@ -65,6 +65,15 @@ body,h1,h2,h3,h4,p {
     color: #fff;
 }
 
+.navBar.landing a:hover,
+.navBar.landing .dropdown.open a {
+    color: #EE6656;
+}
+
+.landing .dropdown.open .dropdown-menu a {
+    color: #000;
+}
+
 .nav>li>a {
     transition: background-color 0.5s ease;
 };
