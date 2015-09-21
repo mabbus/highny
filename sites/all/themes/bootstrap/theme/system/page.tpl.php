@@ -75,7 +75,7 @@
 ?>
 <div class="navBar">
   <div class="row">
-    <a href="<?php print $GLOBALS['base_path'];?>"><div class="navBarLogo"></div></a>
+    <a href="<?php print $GLOBALS['base_path'];?>"><div class="navBarLogo secondary"></div></a>
     <div class="col-md-6 pull-right p-0">
       <ul class="nav nav-pills">
 	<li class="dropdown">

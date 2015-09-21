@@ -26,18 +26,30 @@ body,h1,h2,h3,h4,p {
 }
 
 .navBarLogo {
-    background-color: rgba(68,51,51,.2);
     background-image: url("../../../../../sites/default/files/High-NY-Logo-Big-Apple.png");
     background-position: center;
     background-repeat: no-repeat;
-    height: 35px;
-    width: 200px;
+    background-size: 90% auto;
+    transition: all linear;
+
+/*
+    height: 400px;
+    width: 100%;
     float: left;
-    background-size: 90%;
+
     display: block;
     padding: 4px;
     border-radius: 4px;
     margin-left: 50px;
+    position: absolute;
+    left: 0;
+*/
+
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 32px;
+    width: 250px;
 }
 
 .navBarBoxShadow.landing {
@@ -68,6 +80,14 @@ body,h1,h2,h3,h4,p {
 .navBar.landing a:hover,
 .navBar.landing .dropdown.open a {
     color: #EE6656;
+}
+
+.nav {
+   margin-top: 25px;
+}
+
+.parallax {
+    position: relative;
 }
 
 .landing .dropdown.open .dropdown-menu a {
@@ -242,9 +262,24 @@ background-size: cover;
     overflow: hidden;
 }
 
+.footer .social i {
+    width: 50px;
+    margin-right: 60px;
+    float: left;
+}
 
 /* SECONDARY PAGES */
 
 .main-container.container {
     padding-top: 70px;
+}
+
+.navBarLogo.secondary {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #e3e3e3;
+}
+
+.not-front .region-sidebar-first #block-block-1 {
+    margin-top: 20px;
 }

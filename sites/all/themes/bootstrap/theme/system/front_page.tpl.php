@@ -1,6 +1,6 @@
 <div class="navBar landing">
   <div class="row">
-    <div class="navBarLogo landing"></div>
+    <div class="navBarLogo"></div>
     <div class="col-md-6 pull-right p-0">
       <ul class="nav nav-pills">
 	<li class="dropdown">
@@ -34,11 +34,14 @@
 <div class="navBarBoxShadow col-md-12 landing"></div>
 <div class="body">
   <div class="col-md-12 anchor land">
-    <video autoplay poster="" loop id="bgvid" preload="auto">
-      <source src="<?php print $GLOBALS['base_path'];?>sites/default/files/movie.mp4" type="video/mp4"> 
+    <div class="parallax">
+<!--
+      <video autoplay poster="" loop id="bgvid" preload="auto">
+	<source src="<?php print $GLOBALS['base_path'];?>sites/default/files/movie.mp4" type="video/mp4"> 
 	<source src="<?php print $GLOBALS['base_path'];?>sites/default/files/movie.webm" type="video/webm">
-    </video>
-    <div class="landingLogo"></div>
+      </video>
+-->
+    </div>
   </div>
   <div class="col-md-12 anchor about">
     <div class="autoHeight">
@@ -118,7 +121,7 @@
 
 <div class="col-md-12 footer">
     <div class="row">
-     <?php 
+     <?php
      $block = block_load('block', '2');
      $output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
      print $output;
@@ -133,6 +136,10 @@
 
          var windowHeight = function () {
              return jQuery(window).height() > minHeight ? jQuery(window).height() : minHeight;
+         };
+
+         var windowWidth = function () {
+             return jQuery(window).width();
          };
 
          var setNavBar = function () {
@@ -162,9 +169,83 @@
              });
          };
 
-         var setVideoParallax = function () {
+         var scaleLogo = function () {
+             var pos = jQuery(window).scrollTop();
+
+             /* middle out 
+             if(pos < windowHeight()) {
+                 var xDistance = jQuery(window).width();
+                 var limit = windowHeight() + (windowHeight()*.2);
+                 var step = 1 - (pos / limit);
+                 var marginLeft = (jQuery(window).width() - jQuery('.navBarLogo').width()*step) / 2;
+                 var marginTop = (jQuery('.navBarLogo').height()*(1 - step)) + (jQuery('navbarLogo').height()/2) ;
+                 var top = (windowHeight() / 2) - (jQuery('.navBarLogo').height()/2);
+
+                 jQuery('.navBarLogo').css({
+                        '-webkit-transform' : 'scale(' + step + ')',
+                        '-moz-transform'    : 'scale(' + step + ')',
+                        '-ms-transform'     : 'scale(' + step + ')',
+                        '-o-transform'      : 'scale(' + step + ')',
+                        'transform'         : 'scale(' + step + ')',
+                        'margin-left'       :  '-' + marginLeft + 'px',
+                        'margin-top'        :  '-' + marginTop + 'px',
+                        'top'               :  top + 'px'
+                 });
+             }
+
+		  */
+
+		      /*
+             // out to middle
+             if(pos < windowHeight()) {
+		 var maxWidthScale = (windowWidth()/250);
+                 var step = maxWidthScale/windowHeight();
+		 var scale = maxWidthScale - step*pos;
+                 var z = scale > 1 ? scale : 1;                 
+                 var marginTop = windowHeight()/2 - jQuery('.navBarLogo').height()/2  - pos/2;
+                 var x = marginTop > 20 ? marginTop : 20;
+                 var marginLeft = ((jQuery('.navBarLogo').width()+1)/2) * maxWidthScale - (pos+100);
+                 var y = marginLeft > 20 ? marginLeft : 20;
+                 console.log(y);
+		 jQuery('.navBarLogo').css({
+                        '-webkit-transform' : 'scale(' + z + ')',
+                        '-moz-transform'    : 'scale(' + z + ')',
+                        '-ms-transform'     : 'scale(' + z + ')',
+                        '-o-transform'      : 'scale(' + z + ')',
+                        'transform'         : 'scale(' + z + ')',
+		        'top'               : x + 'px',
+                        'left'              : y + 'px'
+		 });
+             }
+
+             */
+
+             if(pos< windowHeight()) {                 
+ 		 var maxWidthScale = (windowWidth());
+                 var wStep = maxWidthScale / windowHeight();
+		 var hStep = maxWidthScale / windowWidth();
+                 var height = windowHeight() - pos*hStep + 20;
+		 var h = height > 32 ? height : 32;
+      
+                 var width = windowWidth() - pos*wStep + 20;
+                 var w = width > 250 ? width : 250;
+                 jQuery('.navBarLogo').css({
+                      'width': w + 'px',
+		      'height': h + 'px'
+                 });
+             } else {
+                 jQuery('.navBarLogo').css({
+                      'width' : '250px',
+                      'height': '32px'
+                 });
+             } 
+         }
+
+         var setParallax = function () {
              if(jQuery(window).scrollTop() <= windowHeight()){
-                 jQuery('#bgvid').position.top = jQuery('#bgvid').position.top + (windowHeight() * .001);
+                 jQuery('.parallax').css({
+                        'transform'   :  'translateY(' + jQuery(window).scrollTop() + 'px)'
+                 });
              }
          }
 
@@ -185,19 +266,21 @@
          }
 
          jQuery(window).resize(function(e) {
+             scaleLogo();
              if(windowHeight() > 600) {
                  resize();
              }
          });
 
          jQuery(window).scroll(function(e,t) {
-             setNavBar();
-             setVideoParallax();
+             scaleLogo();
+             //setNavBar();
              statsLoader();
+             //setParallax();
          });
-
+         scaleLogo();
          resize();
-         setNavBar();
+         //setNavBar();
 
          jQuery('.signUpBtn').click(function () {
              $('#modal').modal()
