@@ -31,30 +31,40 @@
     </div>
   </div>
 </div>
-<div class="navBarBoxShadow col-md-12 landing"></div>
 <div class="body">
   <div class="col-md-12 anchor land">
     <div class="parallax">
-<!--
+      <div class="landingVideoOverlay"></div>
       <video autoplay poster="" loop id="bgvid" preload="auto">
 	<source src="<?php print $GLOBALS['base_path'];?>sites/default/files/movie.mp4" type="video/mp4"> 
-	<source src="<?php print $GLOBALS['base_path'];?>sites/default/files/movie.webm" type="video/webm">
+	  <source src="<?php print $GLOBALS['base_path'];?>sites/default/files/movie.webm" type="video/webm">
       </video>
--->
     </div>
+  </div>
+  <div class="col-md-12 press">
+     <h2>Featured:</h2> <div style="height: 10px; width: 10px; background: red;"></div>
   </div>
   <div class="col-md-12 anchor about">
     <div class="autoHeight">
-      <div class="row col-md-8">
-	<div class="row">
-          <img class="logo_apple" src="<?php print $GLOBALS['base_path'];?>sites/default/files/highny_logoapple_01.png"/><div class="pull-right col-md-9">
-	    <h3>HIGH NY IS A COMMUNITY</h3>
-	    <p>Dicated to improving the way society interacts with Cannabis. <a href="#signup">Join our mailing list</a></p>
+      <div class="row">
+	<div class="row community">
+          <div class="row">
+	    <p><span class="highny">High NY</span> is a community dedicated to improving the way society interacts with Cannabis.</p>
 	  </div>
+          <div class="row">
+            <img class="logo_apple" src="<?php print $GLOBALS['base_path'];?>sites/default/files/highny_logoapple_01.png"/>
+          </div>
 	</div>
       </div>
       <div class="row col-md-8 text">
-	<div class="col-md-5">We host New York's largest Cannabis Meetup</div><div class="col-md-2"><a href="http://www.meetup.com/HighNY/" target="_blank"><img class="pull-left meetup" src="<?php print $GLOBALS['base_path'];?>sites/default/files/meetup.png" width="150"/></a></div><div class="col-md-5">Support the momement by joining the Meetup!</div>
+	<p>Join New York's largest Cannabis Meetup <a href="http://www.meetup.com/HighNY/join" target="_blank"><img class="meetup" src="<?php print $GLOBALS['base_path'];?>sites/default/files/meetup.png" width="100"/></a>
+      </div>
+      <div class="row col-md-12">
+        <div class="row events">
+         <div class="col-md-4"><div class="event1"></div></div>
+         <div class="col-md-4"><div class="event2"></div></div>
+         <div class="col-md-4"><div class="event3"></div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -98,7 +108,7 @@
       <a name="signup"></a>
       <div class="row">
 	<div>
-	  <h3>Stay tuned</h3>
+	  <h3>Be our bud!</h3>
 	  <div class="col-md-12">
 	    <?php 
 	       $block = block_load('mailing_list', '1');
@@ -109,13 +119,6 @@
 	</div>
       </div>
     </div>
-  </div>
-
-  <div class="col-md-12 anchor partners">
-    <div class="autoHeight">
-
-    </div>
-
   </div>
 </div>
 
@@ -141,6 +144,10 @@
          var windowWidth = function () {
              return jQuery(window).width();
          };
+
+         function numberWithCommas(x) {
+             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+         }
 
          var setNavBar = function () {
              if(jQuery(document).scrollTop() >= (windowHeight() * .5)) {
@@ -203,9 +210,9 @@
 		 var scale = maxWidthScale - step*pos;
                  var z = scale > 1 ? scale : 1;                 
                  var marginTop = windowHeight()/2 - jQuery('.navBarLogo').height()/2  - pos/2;
-                 var x = marginTop > 20 ? marginTop : 20;
+                 var x = marginTop > 20 ? marginTop : 40;
                  var marginLeft = ((jQuery('.navBarLogo').width()+1)/2) * maxWidthScale - (pos+100);
-                 var y = marginLeft > 20 ? marginLeft : 20;
+                 var y = marginLeft > 20 ? marginLeft : 40;
                  console.log(y);
 		 jQuery('.navBarLogo').css({
                         '-webkit-transform' : 'scale(' + z + ')',
@@ -220,7 +227,7 @@
 
              */
 
-             if(pos< windowHeight()) {                 
+             if(pos< windowHeight()) {
  		 var maxWidthScale = (windowWidth());
                  var wStep = maxWidthScale / windowHeight();
 		 var hStep = maxWidthScale / windowWidth();
@@ -260,7 +267,7 @@
                  valObj.each(function ( ){
                    var val = jQuery(this).attr('class').split(' ')[1];
                    jQuery(this).find('.bar').width(val+'%');
-                   jQuery(this).find('.bar').html(val + '%');
+                   jQuery(this).find('.bar').html(numberWithCommas(val) + '%');
                  });
              }
          }
